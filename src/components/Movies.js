@@ -12,16 +12,15 @@ export default class Movies extends Component {
             favourites: []
         }
     }
-    loadMoreMovies = async () => {
-        let newPage = this.state.currPage + 1;
-        const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=5540e483a20e0b20354dabc2d66a31c9&language=en-US&page=${newPage}`);
-        let data = res.data
-        // console.log(data);
-        this.setState({
-            movies: [...this.state.movies, ...data.results],
-            currPage: newPage
-        })
-    }
+    // loadMoreMovies = async () => {
+    //     let newPage = this.state.currPage + 1;
+    //     const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=5540e483a20e0b20354dabc2d66a31c9&language=en-US&page=${newPage}`);
+    //     let data = res.data
+    //     this.setState({
+    //         movies: [...this.state.movies, ...data.results],
+    //         currPage: newPage
+    //     })
+    // }
     async componentDidMount() {
         const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=5540e483a20e0b20354dabc2d66a31c9&language=en-US&page=${this.state.currPage}`);
         let data = res.data
